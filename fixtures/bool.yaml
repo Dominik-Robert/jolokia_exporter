@@ -1,0 +1,5 @@
+metrics:
+- source:
+    mbean: java.lang:type=Memory
+    attribute: Verbose
+  target: java_memory_heap_memory_usage_used

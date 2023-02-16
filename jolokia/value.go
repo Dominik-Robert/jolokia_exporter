@@ -1,12 +1,14 @@
 package jolokia
 
 import (
-	"math"
-	"reflect"
 	"encoding/json"
 	"errors"
-	"strings"
+	"fmt"
+	"math"
+	"reflect"
 	"regexp"
+	"strings"
+
 	"github.com/iancoleman/strcase"
 )
 
@@ -15,7 +17,7 @@ var (
 
 	errNotAFloat = errors.New("value is not a float")
 
-	keyRegExp = regexp.MustCompile("[^a-zA-Z0-9_]")
+	keyRegExp        = regexp.MustCompile("[^a-zA-Z0-9_]")
 	underscoreRegExp = regexp.MustCompile("[_]{2,}")
 )
 
@@ -55,6 +57,7 @@ func toFloat(unk interface{}) (float64, error) {
 }
 
 func getValues(target string, msg json.RawMessage) (map[string]float64, error) {
+	fmt.Println("GET VALUES")
 	result := make(map[string]float64, 0)
 
 	var value NestedValue
